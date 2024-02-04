@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  postgresdb:
+    image: postgres
+    container_name: employee-service-postgres
+    restart: always
+    ports:
+      - '5432:5432'
+    networks:
+      - employeenet
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=employeedb
+
+networks:
+  employeenet:
+    driver: bridge
